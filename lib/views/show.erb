@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title> The Gossip Project </title>
+  </head>
+  
+  <body>
+    <h1> PAGE POTIN </h1>
+    <h3> Voici la page du potin n°<%= @id %></h3>
+        <p>
+          Son auteur : <%= Gossip.find(@id).author %><br/>
+          Le contenu du potin : <%= Gossip.find(@id).content %>
+        </p>
+  
+    <a href="/">Lien pour revenir à la page des potins</a>
+    
+  </body>
+  
+</html>

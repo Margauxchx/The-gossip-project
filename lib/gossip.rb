@@ -1,13 +1,15 @@
 require 'csv'
 require 'pry'
-require 'controller'
 
 class Gossip
-  attr_accessor :author, :content
+  attr_accessor :author, :content, :id
   
   def initialize (author,content)
     @author = author
     @content = content
+    @@compteur = 0
+    @id = @@compteur
+    @@compteur+=1
   end
 
   def save
@@ -23,5 +25,14 @@ class Gossip
     end
   return all_gossips
   end
+  
+  def self.find(id)
+    return self.all[id.to_i]
+  end
+
+  def self.index_gossips
+    CSV.read("db/gossip.csv") 
+  end 
+  
 
 end
