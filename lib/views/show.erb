@@ -5,14 +5,14 @@
   
   <body>
     <h1> PAGE POTIN </h1>
-    <h3> Voici la page du potin n°<%= @id %></h3>
-        <p>
-          Son auteur : <%= Gossip.find(@id).author %><br/>
-          Le contenu du potin : <%= Gossip.find(@id).content %>
-        </p>
-  
-    <a href="/">Lien pour revenir à la page des potins</a>
-    
-  </body>
-  
+     <form action= '/gossips/:id' method='POST'>
+       <h2>Vous avez demandé la page du potin n° <%= params[:id] %> </h2>
+       <br>
+       Son auteur : <%= Gossip.all["#{params[:id]}".to_i + -1].author%>
+       <br>
+       Son contenu : <%= Gossip.all["#{params[:id]}".to_i + -1].content%>
+       <br>
+    </form>
+    <a href ="http://localhost:4567">Revenir à la page des potins.</a>
+      </body>
 </html>
